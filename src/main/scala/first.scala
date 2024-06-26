@@ -4,7 +4,7 @@ object first {
   def main(args:Array[String]):Unit={
 
     val sc=new SparkContext("local[*]","karthik")
-    val rdd1=sc.textFile("C:/Users/nnarse/Desktop/file.txt")
+    val rdd1=sc.textFile("C:/Users/nnarse/Desktop/file1.txt")
     val rdd2=rdd1.flatMap(x=>x.split(" "))
     val rdd3=rdd2.map(x=>(x,1))
     val rdd4=rdd3.reduceByKey((x,y)=>x+y)
