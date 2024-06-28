@@ -226,7 +226,7 @@ object assignment1 {
     }
     return false;
   }
-
+/*
   def eligibleForDiscountOrMemberShipBenefits(purchaseAmount:Int,loyaltyCardAvailable:Boolean):Boolean={
     if(purchaseAmount>200 || loyaltyCardAvailable)
     {
@@ -234,7 +234,7 @@ object assignment1 {
     }
     return false;
   }
-
+*/
   def checkDivisibleBy2Or3(num:Int):Boolean={
     if(num%2==0 || num%3==0)
     {
@@ -244,13 +244,81 @@ object assignment1 {
   }
 
   def checkPositiveAndNotDivBy3(num:Int):Boolean={
-    if(checkPositive(num) || num%3==1 )
+    if(checkPositive(num) && num%3==1 )
     {
       return true;
     }
     return false;
   }
 
+  def eligibleForSeniorDiscountAndNotNewCustomer(age:Int,newCustomer:Boolean):Boolean={
+    if(age>65 || !newCustomer)
+    {
+      return true;
+    }
+    return false;
+  }
+
+  def checkPrimeOrOddNumber(number:Int):Boolean={
+    if(checkPrime(number) || checkOdd(number))
+    {
+      return true;
+    }
+    return false;
+  }
+
+  def eligibleForDiscountOrMemberShipBenefits(purchaseAmount:Int,loyaltyCardAvailable:Boolean):Unit={
+    if(purchaseAmount>200)
+    {
+      println("Qualifies for Discount")
+    }
+    else if (loyaltyCardAvailable)
+      {
+        println("Qualifies for Membership")
+      }
+    else{
+      println("Not eligible")
+    }
+  }
+
+  def eligibleForDiscountAndFreeShipping(purchaseAmount:Int):Unit={
+    if(purchaseAmount > 150)
+    {
+      print("Eligible for discount and free shipping")
+    }
+    else if (purchaseAmount > 100)
+    {
+      print("Eligible for free shipping")
+    }
+    else {
+      print("Not eligible")
+    }
+  }
+
+  def checkNonNegativeAndNotDivBy7(num:Int):Boolean={
+    if(checkPositive(num) && num%7==1 )
+    {
+      return true;
+    }
+    return false;
+  }
+
+  def eligibleForStudentDiscountOrFreeTrial(age:Int,freeTrial:Boolean):Boolean={
+    if(age<25 || freeTrial )
+    {
+      return true;
+    }
+    return false;
+  }
+
+
+  def checkDivisibleBy4Or6(num:Int):Boolean={
+    if(num%4==0 || num%3==6)
+    {
+      return true;
+    }
+    return false;
+  }
   def main (args:Array[String]):Unit={
     println(check_even_positive(2));
     println(check_even_positive(-2));
