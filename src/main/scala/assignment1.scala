@@ -66,6 +66,8 @@ object assignment1 {
     return false;
   }
 
+
+
   def checkDivisibleBy5And7(number:Int):Boolean={
     if(number%5==0 && number%7==0)
     {
@@ -84,6 +86,28 @@ object assignment1 {
 
   def checkOdd(number:Int):Boolean={
     if(number%2==1)
+      {
+        return true;
+      }
+      return false;
+  }
+  def checkEven(number:Int):Boolean={
+    if(number%2==0)
+    {
+      return true;
+    }
+    return false;
+  }
+
+  def checkPositive(number:Int):Boolean={
+    if(number>0)
+    {
+      return true;
+    }
+    return false;
+  }
+  def checkNonPositiveAndEvenNumber(number:Int):Boolean={
+    if (!checkPositive(number) && checkEven(number))
       {
         return true;
       }
@@ -109,6 +133,118 @@ object assignment1 {
 
   def checkPrimeAndOddNumber(number:Int):Boolean={
     if(checkPrime(number) && checkOdd(number))
+    {
+      return true;
+    }
+    return false;
+  }
+
+  def eligibleForDiscountOrFreeShipping(purchaseAmount:Int):Unit={
+    if(purchaseAmount > 150)
+    {
+      print("Eligible for discount")
+    }
+    else if (purchaseAmount > 100)
+    {
+        print("Eligible for free shipping")
+    }
+    else {
+      print("Not eligible")
+    }
+  }
+  def checkDivisibleBy3Or8(number:Int):Boolean={
+    if(number%3==0 || number%8==0)
+    {
+      return true;
+    }
+    return false;
+  }
+
+  def checkDivisibleBy2Or5(number:Int):Boolean={
+    if(number%2==0 || number%5==0)
+    {
+      return true;
+    }
+    return false;
+  }
+
+  def ageGroupClassification(age:Int):Boolean={
+    if(age<13)
+    {
+      println("Child");
+    }
+    else if (age>=13 && age<=19)
+    {
+      println("Teenager");
+    }
+    else if (age>=20)
+    {
+      println("Adult");
+    }
+    return false;
+  }
+
+  def checkSeniorAndStudent(age:Int):Boolean={
+    // Dead question
+    if(age>60 && age<25)
+    {
+      return true;
+    }
+    return false;
+  }
+
+  def checkMultipleOf3And7(number:Int):Boolean={
+    // Dead question
+    if(number%3==0 && number%7==0)
+    {
+      return true;
+    }
+    return false;
+  }
+
+  def checkDivisbleBy5Or9(number:Int):Boolean={
+    // Dead question
+    if(number%5==0 || number%9==0)
+    {
+      return true;
+    }
+    return false;
+  }
+
+  def checkDivisibleBy3And5(number:Int):Boolean={
+    if(number%3==0 && number%5==0)
+    {
+      return true;
+    }
+    return false;
+  }
+
+  def checkOddAndNotDivisibleBy4(number:Int):Boolean={
+    if(checkOdd(number) && number%4==1)
+    {
+      return true;
+    }
+    return false;
+  }
+
+  def eligibleForDiscountOrMemberShipBenefits(purchaseAmount:Int,loyaltyCardAvailable:Boolean):Boolean={
+    if(purchaseAmount>200 || loyaltyCardAvailable)
+    {
+      return true;
+    }
+    return false;
+  }
+
+  def checkDivisibleBy2Or3(num:Int):Boolean={
+    if(num%2==0 || num%3==0)
+    {
+      return true;
+    }
+    return false;
+  }
+
+  def checkPositiveAndNotDivBy3(num:Int):Boolean={
+    if(checkPositive(num) || num%3==1 )
     {
       return true;
     }
@@ -155,6 +291,8 @@ object assignment1 {
     println(checkPrimeAndOddNumber(61));
     println(checkPrimeAndOddNumber(117));
     println(checkPrimeAndOddNumber(200));
+    println("########Output12#######");
+    println(eligibleForDiscountOrFreeShipping(151));
   }
 
 }
