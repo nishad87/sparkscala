@@ -282,8 +282,11 @@ object assignment2 {
     println("Product from 1 to 5")
     productOfNumberFrom1To5()
     println("CheckPerfectSquare")
-    print(checkPerfectSquareUsingWhileLoop(25));
-//    print(checkPerfectSquareUsingWhileLoop(125));
+    println(checkPerfectSquareUsingWhileLoop(25));
+    println(checkPerfectSquareUsingWhileLoop(125));
+    println(checkPerfectSquareUsingWhileLoop(67));
+    println(checkPerfectSquareUsingWhileLoop(144));
+    //    print(checkPerfectSquareUsingWhileLoop(125));
 //    print(checkPerfectSquareUsingWhileLoop(167))
 
   }
