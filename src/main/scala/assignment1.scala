@@ -1,6 +1,7 @@
 import scala.math.abs
 import scala.util.control._
-object assignment1 {
+object assignment1{
+
   def check_even_positive(number:Int):Boolean={
     if( number%2==0 && number>0)
     {
@@ -361,6 +362,22 @@ object assignment1 {
     println(checkPrimeAndOddNumber(200));
     println("########Output12#######");
     println(eligibleForDiscountOrFreeShipping(151));
+/* pattern series
+1
+1  2
+1  2  3
+1  2  3  4
+1  2  3  4  5
+ */
+    for (i<-1 to 5)
+      {
+        for (j<-1 to i)
+          {
+            print (j+"  ")
+          }
+          println()
+      }
+
   }
 
 }
