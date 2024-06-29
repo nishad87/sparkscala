@@ -139,6 +139,109 @@ object assignment2 {
       }
 
   }
+
+  def cubeOfNumberFrom1to3UsingWhile():Unit={
+    var i=1;
+    while(i<=3)
+    {
+      println(i*i*i);
+    }
+
+  }
+
+  def printElementsOfListUsingWhile():Unit={
+    val namesList:List[String] =  List("Nishad","Mohan","Narse")
+    var i=0
+    while(i<=namesList.length-1)
+    {
+      println(namesList(i));
+      i=i+1;
+    }
+
+  }
+
+  def countNoOfVowelsUsingFor(inputString:String):Int={
+    var counter:Int=0;
+    for (i<-0 to inputString.length-1)
+      {
+        if (List('a','e','i','o','u').contains(inputString.charAt(i).toChar))
+          {
+            counter = counter+1;
+          }
+      }
+      counter;
+  }
+
+  def checkPalindromeString(inputString:String):Boolean={
+    var i = 0
+    var j = inputString.length-1;
+    var isPalindrome:Boolean = true
+    val loop = new Breaks
+
+    loop.breakable{
+    while (i<=j)
+      {
+        if (inputString.charAt(i).compare(inputString.charAt(j))!=0)
+          {
+            isPalindrome = false
+            loop.break()
+          }
+      i = i+1;
+      j = j-1;
+      }
+    }
+    isPalindrome
+  }
+
+  def noPattern():Unit={
+    for (i<-1 to 4)
+    {
+      for (j<-1 to i)
+      {
+        print(i)
+      }
+      println();
+    }
+  }
+
+  def productOfNumberFrom1To5():Unit={
+    var product:Int = 1
+    for (i<-1 to 5)
+    {
+      product = product * i
+    }
+    println(product);
+  }
+/*
+  def productOfNumberFrom1To5():Unit={
+    var product:Int = 1
+    for (i<-1 to 5)
+    {
+      product = product * i
+    }
+    println(product);
+  }
+*/
+  def checkPerfectSquareUsingWhileLoop(num:Int):Boolean ={
+    val loopCheck: Int = num / 2.toInt
+    var i = 1 ;
+    var isPerfectSquare:Boolean = false;
+    val loop = new Breaks
+
+    loop.breakable{
+    while (i<=loopCheck)
+      {
+        if (i*i == num)
+          {
+            isPerfectSquare = true
+            loop.break()
+          }
+        i = i + 1;
+      //  i = i * i;
+      }
+    }
+    isPerfectSquare
+  }
   def main (args : Array[String]):Unit={
     printNumbers1To5();
     println("#####")
@@ -165,6 +268,24 @@ object assignment2 {
     sumOfEvenNumberFrom1to20UsingWhileLoop();
     println("#####")
     starPattern();
+    println("#####")
+    printElementsOfListUsingWhile();
+    println("#####")
+    print(countNoOfVowelsUsingFor("aeif"));
+    println("#####")
+    noPattern()
+    println("Palindrome check")
+    println(checkPalindromeString("nayan"))
+    println(checkPalindromeString("nishad"))
+    println(checkPalindromeString("abc"))
+    println(checkPalindromeString("a"))
+    println("Product from 1 to 5")
+    productOfNumberFrom1To5()
+    println("CheckPerfectSquare")
+    print(checkPerfectSquareUsingWhileLoop(25));
+//    print(checkPerfectSquareUsingWhileLoop(125));
+//    print(checkPerfectSquareUsingWhileLoop(167))
+
   }
 
 }
