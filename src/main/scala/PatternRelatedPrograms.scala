@@ -116,7 +116,27 @@ object PatternRelatedPrograms {
 
   }
 
+
+  def sumFrom1To100():Unit={
+
+    for (i<-1 to 100)
+    {
+      println(i);
+    }
+
+    var num = 1 ;
+
+    while (num<=100)
+    {
+      println(num)
+      num = num + 1;
+    }
+
+
+  }
   def main (args:Array[String]):Unit={
+    sumFrom1To100()
+    /*
     rightAnglePattern()
     println("-----------------------------------------------------")
     squarePattern()
@@ -128,5 +148,7 @@ object PatternRelatedPrograms {
     pattern9()
     println("-----------------------------------------------------ButterFly Pattern ")
     butterFlyPattern
+  */
   }
+
 }
