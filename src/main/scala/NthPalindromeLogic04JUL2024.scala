@@ -13,7 +13,7 @@ object NthPalindromeLogic04JUL2024 {
   def nthPalindromeWithinRange(pLowerBound:Int , pUpperBound:Int , n:Int):Unit={
     var counter:Int = 0;
     var nPalindrome:Int = 0;
-    var loop = new Breaks
+    var loop = new Breaks;
     loop.breakable {
       for (i <- pLowerBound to pUpperBound) {
         if (checkPalindrome(i) == true) {
