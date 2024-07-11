@@ -38,7 +38,7 @@ def sumArrayElements(arr:Array[Int]):Int=
   }
 
 
-  def mergeArrays(arr1:Array[Int] , arr2:Array[Int]):Array[Int]={
+  def mergeArray(arr1:Array[Int] , arr2:Array[Int]):Array[Int]={
     val lengthArr1:Int = arr1.length
     val lengthArr2:Int = arr2.length
 
@@ -64,6 +64,6 @@ var intArray = Array(1,2,3,4,5);
     println(sumArrayElements(intArray))
     reverseArrayElements(strArray).map(println)
     println("Avg"+avgArrayElements(intArray));
-    println("Merged array"+mergeArrays(intArray,intArray2).map(println));
+    println("Merged array"+mergeArray(intArray,intArray2).map(println));
 }
 }
