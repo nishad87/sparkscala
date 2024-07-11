@@ -102,6 +102,16 @@ object assignment2 {
     }
     return isPrime;
   }
+
+  def printPrimeInRange(lowerBound:Int , upperBound:Int)={
+    for (i<-lowerBound to upperBound)
+      {
+        if (checkPrime(i)==true)
+          {
+            println(i)
+          }
+      }
+  }
   def reverseListUsingForLoop():Unit={
     val namesList:List[String] = List("Nishad","Mohan","Narse")
     var i=namesList.length-1;
@@ -242,7 +252,55 @@ object assignment2 {
     }
     isPerfectSquare
   }
+
+  def oddElementsOfArray():Unit={
+
+    var arr = Array(10,20,30,40,50,60,70,80,90,100)
+    for (i<-0 to arr.length-1)
+      {
+        if (i%2 == 1)
+          {
+            println (arr(i))
+          }
+      }
+
+
+  }
+
+
+  def conditionalSum():Unit={
+    var sum = 0
+    var arr = Array(10,20,40,60,70,80,90,110,30,22)
+
+    arr.map(num=>{
+      if (num%15 == 0)
+        {
+          sum = sum + num;
+        }
+    })
+    println("Sum : " + sum)
+    sum = 0
+
+    // Attempting using traditional way
+    for (i<-0 to arr.length-1)
+    {
+
+        if (arr(i)%15 == 0)
+          {
+            sum = sum + arr(i)
+          }
+          }
+
+    print ("Sum"+sum)
+
+
+  }
   def main (args : Array[String]):Unit={
+    conditionalSum()
+    println("PrintPrime")
+    printPrimeInRange(1,100);
+    oddElementsOfArray();
+
     printNumbers1To5();
     println("#####")
     printEvenNumberFrom2to10UsingWhile();
