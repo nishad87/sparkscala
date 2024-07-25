@@ -20,7 +20,7 @@ dept_id dept_name
 * CREATE TABLES AND INSERT SCRIPTS
 *
 * */
-
+/*
 
 CREATE TABLE employees
 (
@@ -145,3 +145,5 @@ FROM employees e JOIN employees e1
   ON e.dept_id = e1.dept_id
 AND e.name != e1.name
 WHERE e.emp_id < e1.emp_id
+
+ */
