@@ -175,7 +175,7 @@ object sparkDFAssignment_2_SetASetB {
   /*  Question 7 - Same as Set B Q2*/
    /*  Question 8 - Same as Set B Q2*/
     /*  Question 8 - Same as Set B Q2*/
-/*Question 9 to  - Same as Set B Q2
+/*Question 6 to 70 - Same as Set B Q2
 * Use date_format(col("purchase_date"),"MMMMM YYYY") for January 2024
 * DF.filter(col("columnname") === "January 2024")
 * If you are using to_date then MM should be capital ie yyyy-MM-dd yyyy and dd has to be lowercase
@@ -197,7 +197,7 @@ object sparkDFAssignment_2_SetASetB {
 
 
 
-    /*
+
         val students = List(
           (1, "Alice", 92, "Math"),
           (2, "Bob", 85, "Math"),
@@ -374,7 +374,7 @@ object sparkDFAssignment_2_SetASetB {
           ,min("duration_minutes").over(winRatingCategory).alias("Minimum")
           ,max("duration_minutes").over(winRatingCategory).alias("Maximum")).distinct().show()
       }
-    */
+
 
   }
 }
