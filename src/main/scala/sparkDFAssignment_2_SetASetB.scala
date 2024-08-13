@@ -197,7 +197,7 @@ object sparkDFAssignment_2_SetASetB {
 
 
 
-
+/*
         val students = List(
           (1, "Alice", 92, "Math"),
           (2, "Bob", 85, "Math"),
@@ -373,8 +373,87 @@ object sparkDFAssignment_2_SetASetB {
           ,avg("duration_minutes").over(winRatingCategory).alias("Average")
           ,min("duration_minutes").over(winRatingCategory).alias("Minimum")
           ,max("duration_minutes").over(winRatingCategory).alias("Maximum")).distinct().show()
-      }
+
+*/
+    val df1=spark.read.format("csv").option("header",true).option("path","C:/Users/nnarse/Desktop/RDD/JOIN/info.csv").load()
+
+    val df2=spark.read.format("csv").option("header",true).option("path","C:/Users/nnarse/Desktop/RDD/JOIN/details.csv").load()
+
+
+    val condition=df1("id")===df2("id")
+    val jointype="inner"
+    val  joineddf=df1.join(broadcast(df2),condition,jointype).drop(df1("id"))
+
+    joineddf.show()
+
+
+    val emp_salary = List(
+      (1,"John",1000,"01/01/2016"),
+        (1,"John",2000,"02/01/2016"),
+          (1,"John",1000,"03/01/2016"),
+            (1,"John",2000,"04/01/2016"),
+              (1,"John",3000,"05/01/2016"),
+                (1,"John",1000,"06/01/2016")
+    ).toDF("id","name","salary","date")
+
+    val windowSpec = Window.partitionBy("id").orderBy(to_date(col("date"),"MM\\dd\\yyyy"))
+    val win_emp_salary = emp_salary.withColumn("lagsalary",lag("salary",1).over(windowSpec)).
+      withColumn("UP_DOWN",when(col("salary") - lag("salary",1).over(windowSpec) < 0,"DOWN").otherwise("UP") )
+    win_emp_salary.show()
+
+    val win_emp_salary_current = emp_salary.withColumn("Average Salary",avg("salary").over(windowSpec)).
+      withColumn("Diff",col("salary") - avg("salary").over(windowSpec)).show()
+
+
+    /*
+    * Display the students whose total of two highest marks that atre atlease 160
+    *
+    * */
+
+    val marks =
+      List(
+        ("A","X",80),
+        ("A","Y",70),
+        ("A","Z",75),
+        ("B","X",90),
+        ("B","Y",91),
+        ("B","Z",75),
+        ("C","X",60),
+        ("C","Y",93),
+        ("C","Z",81)
+      ).toDF("studentid","subjectid","marksobtained")
+
+
+    val window = Window.partitionBy("studentid").orderBy(col("marksobtained").desc )
+
+    marks.withColumn("rank",row_number() over(window))
+      .filter(col("rank")<=2)
+      .groupBy(col("studentid")).agg(sum(col("marksobtained")) as("sumOfTwoHighestMarks"))
+      .filter(col("sumOfTwoHighestMarks")>=160)
+      .show()
+
+    /**
+     SELECT student_id,sumOfTwoHighestMarks
+     (
+     SELECT student_id , SUM(marks) as sumOfTwoHighestMarks
+     (
+      SELECT studentid,subjectid,marksobtained
+      FROM
+        (SELECT studentid,subjectid,marksobtained,
+        row_number() over (partition by studentid order by marksobtained desc) as rank)
+      WHERE rank<=2
+      )
+     GROUP BY student_id
+     )
+     WHERE sumOfTwoHighestMarks>=160
+     */
+
 
 
   }
+
+
+
+
+
 }

@@ -6,6 +6,7 @@ object RDD_Assignment {
 
     val sc = new SparkContext("local[4]", "nishad")
 
+
     val rdd1=sc.textFile("C:/Users/nnarse/Desktop/file1.txt") //--> SPark RDD
     val rdd2= rdd1.flatMap(x=>x.split(" "))
     val rdd3=rdd2.map(x=>(x,1))

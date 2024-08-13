@@ -12,7 +12,7 @@ object sparkDFAssignment {
           .master("local[*]")
           .getOrCreate()
 
-    import spark.implicits._
+      import spark.implicits._
 
     val data=List(("mohan",78),("Ajay",90),("veer",76)).toDF("Name","Age")
     print("Nishad")
@@ -65,13 +65,12 @@ object sparkDFAssignment {
 
 
 
-    //
-//    employees.withColumn("Category",when(col("age")<30 //&& col("salary")<35000
-//      ,"Young  & Low Salary")
-//      //.when (col("age")>=30 && col("age")<=40 && col("salary")>=35000 && col("salary")<=45000,"Middle aged & Medium Salary")
-//      .otherwise("Old & High Salary")
-//    )
-    //employees.show()
+
+    employees.withColumn("Category",when(col("age")<30 && col("salary")<35000,"Young  & Low Salary")
+      .when (col("age")>=30 && col("age")<=40 && col("salary")>=35000 && col("salary")<=45000,"Middle aged & Medium Salary")
+      .otherwise("Old & High Salary")
+    )
+    employees.show()
 
 
 //        val df = spark.read
